@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster - Organize Your Life</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <navbar>
+        <div class="logo">
+            <span>📝</span> TaskMaster
+        </div>
+        <div class="nav-links">
+            <a href="javascript:void(0)" id="nav-login-btn">Login</a>
+            <a href="javascript:void(0)" id="nav-register-btn">Register</a>
+        </div>
+    </navbar>
+
+    <!-- Landing Page Hero Section -->
+    <div id="hero-section" class="hero-section">
+        <div class="badge">🚀 Smart Task Management</div>
+        <h1>Organize your work & life, finally.</h1>
+        <p class="subtitle">
+            A simple, fast, and secure To-Do application built to help you keep track of your daily tasks and boost your productivity.
+        </p>
+
+        <div class="cta-buttons">
+            <button id="hero-login-btn" class="btn btn-primary">Get Started / Login</button>
+            <button id="hero-register-btn" class="btn btn-secondary">Create Account</button>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">🔒</div>
+                <h3>Secure Auth</h3>
+                <p>Personalized task dashboard with secure user registration & login system.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Real-time Search</h3>
+                <p>Instantly search and filter through all your pending and completed tasks.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📊</div>
+                <h3>Track Status</h3>
+                <p>Seamlessly update task statuses from Pending to Completed with ease.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Section (Initially Hidden) -->
+    <main style="max-width: 600px; margin: 40px auto; padding: 20px;">
+        <div id="auth-container" style="display: none; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <h2 id="auth-title" style="text-align: center; margin-bottom: 20px; color: #fff;">Login</h2>
+            <form id="auth-form" style="display: flex; flex-direction: column; gap: 15px;">
+                <div id="name-group" style="display: none;">
+                    <label style="display: block; margin-bottom: 5px; color: #ccc;">Name</label>
+                    <input type="text" id="name" placeholder="Enter name" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: #fff;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 5px; color: #ccc;">Email</label>
+                    <input type="email" id="email" required placeholder="Enter email" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: #fff;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 5px; color: #ccc;">Password</label>
+                    <input type="password" id="password" required placeholder="Enter password" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: #fff;">
+                </div>
+                <button type="submit" id="auth-btn" class="btn btn-primary" style="border: none; width: 100%; margin-top: 10px;">Login</button>
+            </form>
+            <p id="toggle-auth" style="text-align: center; margin-top: 15px; cursor: pointer; color: #38bdf8;">
+                Don't have an account? <span>Register</span>
+            </p>
+        </div>
+
+        <!-- Task Dashboard (Initially Hidden) -->
+        <div id="app-container" style="display: none; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 style="color: #fff;">Task Dashboard</h2>
+                <button id="logout-btn" class="btn btn-secondary" style="padding: 6px 15px; font-size: 14px;">Logout</button>
+            </div>
+
+            <form id="task-form" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <input type="text" id="task-title" placeholder="Add a new task..." required style="flex: 1; padding: 10px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: #fff;">
+                <button type="submit" class="btn btn-primary" style="border: none; padding: 10px 20px;">Add</button>
+            </form>
+
+            <input type="text" id="search-input" placeholder="Search tasks..." style="width: 100%; padding: 10px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: #fff;">
+
+            <ul id="task-list"></ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>© TaskMaster Project. Built for Full-Stack Assignment.</p>
+    </footer>
+
+    <!-- JS File Connection -->
+    <script src="first.js"></script>
+</body>
+</html>
