@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://task-tracker-jw9e.onrender.com';
 let isLoginView = true;
 let allTasks = [];
 
