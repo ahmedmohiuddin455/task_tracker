@@ -7,10 +7,12 @@ app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'todo_db'
+  host: 'mysql-39413890-ahmedmohiuddin455-8804.c.aivencloud.com',
+  user: 'avnadmin',
+  password: 'AVNS_KkksduQtX2NDilpBluJ',
+  database: 'defaultdb',
+  port: 24135,
+  ssl: { rejectUnauthorized: false }
 });
 
 db.connect((err) => {
