@@ -10,7 +10,7 @@ app.use(cors());
 const db = mysql.createPool({
   host: 'mysql-39413890-ahmedmohiuddin455-8804.c.aivencloud.com',
   user: 'avnadmin',
-  password: 'AVNS_' + 'KksduQtX2NDilpBluJ', // Split string to bypass GitHub secret scanning
+  password: 'AVNS_KkksduQtX2NDilpBluJ', 
   database: 'defaultdb',
   port: 24135,
   ssl: { rejectUnauthorized: false },
