@@ -2,7 +2,7 @@ const API_URL = 'https://task-tracker-jw9e.onrender.com';
 let isLoginView = true;
 let allTasks = [];
 
-// DOM Elements
+
 const heroSection = document.getElementById('hero-section');
 const authContainer = document.getElementById('auth-container');
 const appContainer = document.getElementById('app-container');
@@ -15,13 +15,13 @@ const searchInput = document.getElementById('search-input');
 const logoutBtn = document.getElementById('logout-btn');
 const taskForm = document.getElementById('task-form');
 
-// Buttons for navigating to Auth Section
+
 const navLoginBtn = document.getElementById('nav-login-btn');
 const navRegisterBtn = document.getElementById('nav-register-btn');
 const heroLoginBtn = document.getElementById('hero-login-btn');
 const heroRegisterBtn = document.getElementById('hero-register-btn');
 
-// Open Login View
+
 function showLogin() {
     isLoginView = true;
     if (heroSection) heroSection.style.display = 'none';
@@ -33,7 +33,7 @@ function showLogin() {
     if (toggleAuth) toggleAuth.innerHTML = "Don't have an account? <span>Register</span>";
 }
 
-// Open Register View
+
 function showRegister() {
     isLoginView = false;
     if (heroSection) heroSection.style.display = 'none';
@@ -45,13 +45,13 @@ function showRegister() {
     if (toggleAuth) toggleAuth.innerHTML = "Already have an account? <span>Login</span>";
 }
 
-// Attach Event Listeners to Buttons
+
 if (navLoginBtn) navLoginBtn.addEventListener('click', showLogin);
 if (heroLoginBtn) heroLoginBtn.addEventListener('click', showLogin);
 if (navRegisterBtn) navRegisterBtn.addEventListener('click', showRegister);
 if (heroRegisterBtn) heroRegisterBtn.addEventListener('click', showRegister);
 
-// Toggle between Login & Register from bottom text
+
 if (toggleAuth) {
     toggleAuth.addEventListener('click', () => {
         if (isLoginView) {
@@ -62,7 +62,7 @@ if (toggleAuth) {
     });
 }
 
-// Handle Form Submit (Login & Register)
+
 if (authForm) {
     authForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -86,7 +86,7 @@ if (authForm) {
                     alert('Registration successful! Please login.');
                     showLogin();
                 } else {
-                    // Show Dashboard & Hide Landing Page / Auth Container
+                    
                     if (heroSection) heroSection.style.display = 'none';
                     if (authContainer) authContainer.style.display = 'none';
                     if (appContainer) appContainer.style.display = 'block';
@@ -101,14 +101,14 @@ if (authForm) {
     });
 }
 
-// Logout Listener -> Return to Landing Page
+
 if (logoutBtn) {
     logoutBtn.addEventListener('click', () => {
         window.location.href = '/';
     });
 }
 
-// Task CRUD Operations
+
 async function fetchTasks() {
     try {
         const res = await fetch(`${API_URL}/tasks`);

@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Aiven Database Pool Setup
+
 const db = mysql.createPool({
   host: 'mysql-39413890-ahmedmohiuddin455-8804.c.aivencloud.com',
   user: 'avnadmin',
@@ -19,7 +19,7 @@ const db = mysql.createPool({
   queueLimit: 0
 });
 
-// Register
+
 app.post('/register', (req, res) => {
     const { name, email, password } = req.body;
     db.query('INSERT INTO users (name, email, password) VALUES (?, ?, ?)', [name, email, password], (err, result) => {
@@ -28,7 +28,7 @@ app.post('/register', (req, res) => {
     });
 });
 
-// Login
+
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     db.query('SELECT * FROM users WHERE email = ? AND password = ?', [email, password], (err, results) => {
@@ -41,7 +41,7 @@ app.post('/login', (req, res) => {
     });
 });
 
-// READ Tasks
+
 app.get('/tasks', (req, res) => {
     db.query('SELECT * FROM tasks', (err, results) => {
         if (err) return res.status(500).send(err);
@@ -49,7 +49,7 @@ app.get('/tasks', (req, res) => {
     });
 });
 
-// CREATE Task
+
 app.post('/tasks', (req, res) => {
     const { task } = req.body;
     db.query('INSERT INTO tasks (task, status) VALUES (?, ?)', [task, 'Pending'], (err, result) => {
@@ -58,7 +58,7 @@ app.post('/tasks', (req, res) => {
     });
 });
 
-// UPDATE Task text or status
+
 app.put('/tasks/:id', (req, res) => {
     const { id } = req.params;
     const { task, status } = req.body;
@@ -82,7 +82,7 @@ app.put('/tasks/:id', (req, res) => {
     });
 });
 
-// DELETE Task
+
 app.delete('/tasks/:id', (req, res) => {
     const { id } = req.params;
     db.query('DELETE FROM tasks WHERE id = ?', [id], (err, result) => {
@@ -94,10 +94,10 @@ app.delete('/tasks/:id', (req, res) => {
 app.listen(5000, () => {
     console.log('Server is running on Port 5000...');
 });
-// Serve static files (CSS, JS, Images)
+
 app.use(express.static(__dirname));
 
-// Home Page Route
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
@@ -107,7 +107,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-// app.listen সবার শেষে থাকবে
+
 app.listen(5000, () => {
     console.log('Server is running on port 5000');
 });
